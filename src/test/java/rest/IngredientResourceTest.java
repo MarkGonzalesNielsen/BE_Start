@@ -10,6 +10,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+
 import io.restassured.parsing.Parser;
 import java.net.URI;
 import java.util.List;
@@ -83,8 +84,8 @@ public class IngredientResourceTest {
     @BeforeEach
     public void setUp() {
         EntityManager em = emf.createEntityManager();
-        r1 = new Ingredient("Tissemand");
-        r2 = new Ingredient("Tissekone");
+        r1 = new Ingredient("Lassagne");
+        r2 = new Ingredient("Tiramisu");
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Ingredient.deleteAllRows").executeUpdate();
@@ -132,16 +133,18 @@ public class IngredientResourceTest {
     }
 
     //virker ikke
-//    @Test
-//    public void deleteIngredient(){
-//        given()
-//                .contentType(ContentType.JSON)
-//                .pathParam("id", r1.getId())
-//                .delete("/ingredient/{id}")
-//                .then()
-//                .statusCode(200)
-//                .body("id", equalTo(r2.getId()));
-//    }
+    @Test
+    public void deleteIngredient(){
+        login("user","test");
+        given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                //.header("x-access-token", securityToken)
+                .delete("/ingredient/delete/{id}", r1.getId())
+                .then()
+                .statusCode(200)
+                .body("id", equalTo(r1.getId()));
+    }
 
 
 

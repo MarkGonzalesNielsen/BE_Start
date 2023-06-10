@@ -5,23 +5,30 @@ import entities.Ingredient;
 import java.util.Objects;
 
 public class IngredientDTO {
-    private Long id;
+    private int id;
     private String name;
 
     public IngredientDTO(String name) {
         this.name = name;
     }
 
-    public IngredientDTO(Ingredient i){
-        if (i.getId() != null)
-            this.id = i.getId();
-        this.name = i.getName();
+    //Før jeg lavede om til int i DTO og ENTITIT
+//    public IngredientDTO(Ingredient i){
+//        if (i.getId() != null)
+//            this.id = i.getId();
+//        this.name = i.getName();
+//    }
+
+
+    public IngredientDTO(Ingredient ingredient) {
+        this.id = ingredient.getId();
+        this.name = ingredient.getName();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getName() {

@@ -59,27 +59,44 @@ public class IngredientFacade {
         }
     }
 
-    public IngredientDTO updateIngredient(IngredientDTO id) {
+    //gamle updateIngredient
+//    public IngredientDTO updateIngredient(IngredientDTO ingredientDTO) {
+//        EntityManager em = emf.createEntityManager();
+//        Ingredient ingredient = (em.find(Ingredient.class, ingredientDTO.getId()));
+//        try {
+//            ingredient.setName(ingredientDTO.getName());
+//            em.getTransaction().begin();
+//            ingredient = em.merge(ingredient);
+//            em.getTransaction().commit();
+//        } finally {
+//            em.close();
+//        }
+//        return new IngredientDTO(ingredient);
+//    }
+
+    public IngredientDTO updateIngredient(IngredientDTO ingredientDTO) {
         EntityManager em = emf.createEntityManager();
-        Ingredient ingredient = (em.find(Ingredient.class, id.getId()));
+        Ingredient ingredient = (em.find(Ingredient.class, ingredientDTO.getId()));
         try {
-            ingredient.setName(id.getName());
+            ingredient.setName(ingredientDTO.getName());
             em.getTransaction().begin();
             ingredient = em.merge(ingredient);
             em.getTransaction().commit();
+            return new IngredientDTO(ingredient);
         } finally {
             em.close();
         }
-        return new IngredientDTO(ingredient);
     }
 
-    public void deleteIngredient(int pn) {
+
+    public IngredientDTO deleteIngredient(int ingredientId) {
         EntityManager em = emf.createEntityManager();
-        Ingredient ingredient = (em.find(Ingredient.class, (long) pn));
+        Ingredient ingredient = (em.find(Ingredient.class, ingredientId));
         try {
             em.getTransaction().begin();
             em.remove(ingredient);
             em.getTransaction().commit();
+            return new IngredientDTO(ingredient);
         } finally {
             em.close();
         }
@@ -96,3 +113,4 @@ public class IngredientFacade {
         }
     }
 }
+

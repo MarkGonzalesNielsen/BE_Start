@@ -57,8 +57,8 @@ public class IngredientResource {
     @Consumes({MediaType.APPLICATION_JSON})
    // @RolesAllowed("admin")
     public Response deleteIngredient(@PathParam("id") int id) {
-        ingredientFacade.deleteIngredient(id);
-        return Response.ok().entity(GSON.toJson(id)).build();
+        IngredientDTO deleted = ingredientFacade.deleteIngredient(id);
+        return Response.ok().entity(GSON.toJson(deleted)).build();
     }
 
     @PUT
