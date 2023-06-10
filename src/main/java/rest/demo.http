@@ -11,3 +11,18 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/backend_start/api/info/user
 x-access-token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJleHAiOjE2ODIwMTUwMzUsImlhdCI6MTY4MjAxMzIzNSwiaXNzdWVyIjoic2VtZXN0ZXJzdGFydGNvZGUtZGF0MyIsInVzZXJuYW1lIjoiYWRtaW4ifQ.XY_HDCOubMGPK1esmf15SrWx5cnY7STkf6kFxYJ8qv8
+
+### Get all Ingredients
+GET http://localhost:8080/backend_start_war_exploded/api/ingredient/all
+
+### create new Ingredient
+POST http://localhost:8080/backend_start_war_exploded/api/ingredient/create
+Content-Type: application/json
+
+{
+  "name": "Pøls"
+}
+
+### Delete Ingredient by id
+DELETE http://localhost:8080/backend_start_war_exploded/api/ingredient/delete/5
+Content-Type: application/json
