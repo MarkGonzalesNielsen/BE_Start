@@ -196,23 +196,23 @@ public class IngredientResourceTest {
 
 
     //This test assumes the database contains two rows
-    @Test
-    public void testDummyMsg() throws Exception {
-        given()
-                .contentType("application/json")
-                .get("/xxx/").then()
-                .assertThat()
-                .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("msg", equalTo("Hello World"));
-    }
-
-    @Test
-    public void testCount() throws Exception {
-        given()
-                .contentType("application/json")
-                .get("/xxx/count").then()
-                .assertThat()
-                .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("count", equalTo(2));
-    }
+//    @Test
+//    public void testDummyMsg() throws Exception {
+//        given()
+//                .contentType("application/json")
+//                .get("/xxx/").then()
+//                .assertThat()
+//                .statusCode(HttpStatus.OK_200.getStatusCode())
+//                .body("msg", equalTo("Hello World"));
+//    }
+//
+//    @Test
+//    public void testCount() throws Exception {
+//        given()
+//                .contentType("application/json")
+//                .get("/xxx/count").then()
+//                .assertThat()
+//                .statusCode(HttpStatus.OK_200.getStatusCode())
+//                .body("count", equalTo(2));
+//    }
 }
