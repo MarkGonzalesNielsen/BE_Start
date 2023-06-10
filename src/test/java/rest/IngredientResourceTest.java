@@ -1,15 +1,15 @@
 package rest;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dtos.IngredientDTO;
 import entities.Ingredient;
-import entities.RenameMe;
 import io.restassured.http.ContentType;
 import utils.EMF_Creator;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-
 
 import io.restassured.parsing.Parser;
 import java.net.URI;
@@ -38,6 +38,8 @@ public class IngredientResourceTest {
     static final URI BASE_URI = UriBuilder.fromUri(SERVER_URL).port(SERVER_PORT).build();
     private static HttpServer httpServer;
     private static EntityManagerFactory emf;
+
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     static HttpServer startServer() {
         ResourceConfig rc = ResourceConfig.forApplication(new ApplicationConfig());
@@ -114,6 +116,51 @@ public class IngredientResourceTest {
                 .body("msg", equalTo("recipe endpoint"));
     }
 
+    @Test
+    void createIngredient(){
+
+        login("admin","test");
+        IngredientDTO ingredientDTO = new IngredientDTO("Salt");
+        String requestBody = GSON.toJson(ingredientDTO);
+
+        given()
+                .header("Content-type", ContentType.JSON)
+                .accept(ContentType.JSON)
+                //.header("x-access-token", securityToken)
+                .and()
+                .body(requestBody)
+                .when()
+                .post("/ingredient/create")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body("id", notNullValue());
+    }
+
+    @Test
+    void updateIngredient(){
+
+        IngredientDTO ingredientDTO = new IngredientDTO(r1);
+        ingredientDTO.setName("peber");
+        String requestBody = GSON.toJson(ingredientDTO);
+
+        login("admin","test");
+
+        given()
+                .header("Content-type", ContentType.JSON)
+                //.header("x-access-token", securityToken)
+                .and()
+                .body(requestBody)
+                .when()
+                .put("/ingredient/update")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body("id", equalTo(r1.getId()))
+                .body("name", equalTo(ingredientDTO.getName()));
+    }
+
+
 
     @Test
     void getAll()
@@ -132,7 +179,7 @@ public class IngredientResourceTest {
         assertThat(ingredientDTOS, containsInAnyOrder(i1DTO,i2DTO));
     }
 
-    //virker ikke
+
     @Test
     public void deleteIngredient(){
         login("user","test");
