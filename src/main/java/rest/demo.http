@@ -23,6 +23,16 @@ Content-Type: application/json
   "name": "Pøls"
 }
 
+### update an Ingredient event
+
+POST http://localhost:8080/backend_start_war_exploded/api/ingredient/update
+Content-Type: application/json
+
+{
+  "id": 8,
+  "name": "Lasagne"
+}
+
 ### Delete Ingredient by id
-DELETE http://localhost:8080/backend_start_war_exploded/api/ingredient/delete/7
+DELETE http://localhost:8080/backend_start_war_exploded/api/ingredient/delete/2
 Content-Type: application/json
