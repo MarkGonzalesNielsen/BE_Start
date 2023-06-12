@@ -28,14 +28,15 @@ public class Assistant {
 //    @JoinColumn(name = "user_name")
 //    private User user;
 
+    //    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+//    private List<Car> cars = new ArrayList<>();
+
     @ManyToMany(mappedBy = "assistants")
     private List<Booking> bookings;
 
-//    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
-//    private List<Car> cars = new ArrayList<>();
 
-        public Assistant() {
-        }
+    public Assistant() {
+    }
 
 
     public Assistant(String name, String language, String experience, String pricePerHour) {

@@ -32,9 +32,7 @@ public class AssistantFacade {
         }
         return instance;
     }
-
-
-
+    
 
     public List<AssistantDTO> getAllAssistants() {
         EntityManager em = emf.createEntityManager();
@@ -46,8 +44,6 @@ public class AssistantFacade {
             em.close();
         }
     }
-
-
 
     public AssistantDTO createAssistant(AssistantDTO assistantDTO) {
         EntityManager em = emf.createEntityManager();
@@ -62,43 +58,9 @@ public class AssistantFacade {
         }
     }
 
-    public IngredientDTO updateIngredient(IngredientDTO ingredientDTO) {
-        EntityManager em = emf.createEntityManager();
-        Ingredient ingredient = (em.find(Ingredient.class, ingredientDTO.getId()));
-        try {
-            ingredient.setName(ingredientDTO.getName());
-            em.getTransaction().begin();
-            ingredient = em.merge(ingredient);
-            em.getTransaction().commit();
-            return new IngredientDTO(ingredient);
-        } finally {
-            em.close();
-        }
-    }
 
 
-    public IngredientDTO deleteIngredient(int ingredientId) {
-        EntityManager em = emf.createEntityManager();
-        Ingredient ingredient = (em.find(Ingredient.class, ingredientId));
-        try {
-            em.getTransaction().begin();
-            em.remove(ingredient);
-            em.getTransaction().commit();
-            return new IngredientDTO(ingredient);
-        } finally {
-            em.close();
-        }
-    }
 
 
-    public IngredientDTO getIngredientById(Long id) {
-        EntityManager em = emf.createEntityManager();
-        try {
-            Ingredient ingredient = em.find(Ingredient.class, id);
-            return new IngredientDTO(ingredient);
-        } finally {
-            em.close();
-        }
-    }
 }
 
