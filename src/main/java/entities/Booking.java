@@ -19,9 +19,8 @@ public class Booking {
     @Column(name = "duration")
     private String duration;
 
-    @ManyToMany
-    @JoinTable(name = "bookings")
-    private Set<Booking> assistants = new HashSet<>();
+    @ManyToMany()
+    private List<Assistant> assistants = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "car_id")
@@ -62,11 +61,11 @@ public class Booking {
         this.duration = duration;
     }
 
-    public Set<Booking> getAssistants() {
+    public List<Assistant> getAssistants() {
         return assistants;
     }
 
-    public void setAssistants(Set<Booking> assistants) {
+    public void setAssistants(List<Assistant> assistants) {
         this.assistants = assistants;
     }
 
