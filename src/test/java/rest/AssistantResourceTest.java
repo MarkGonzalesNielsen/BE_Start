@@ -87,7 +87,7 @@ public class AssistantResourceTest {
     public void setUp() {
         EntityManager em = emf.createEntityManager();
         a1 = new Assistant("Peter", "Danish", "5 years", "150 kr/hour");
-        a2 = new Assistant("Peter", "Danish", "10 years", "200 kr/hour");
+        a2 = new Assistant("Ole", "Danish", "10 years", "200 kr/hour");
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Assistant.deleteAllRows").executeUpdate();

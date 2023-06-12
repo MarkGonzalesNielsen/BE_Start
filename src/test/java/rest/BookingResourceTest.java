@@ -121,7 +121,6 @@ public class BookingResourceTest {
     void getAll()
     {
         List<BookingDTO> bookingDTOS;
-
         bookingDTOS = given()
                 .contentType("application/json")
                 .when()
