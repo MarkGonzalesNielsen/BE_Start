@@ -2,9 +2,9 @@ package entities;
 import javax.persistence.*;
 import java.util.*;
 
-@Table(name = "recipe")
+@Table(name = "assistant")
 @Entity
-@NamedQuery(name = "Recipe.deleteAllRows", query = "DELETE from Recipe")
+@NamedQuery(name = "Assistant.deleteAllRows", query = "DELETE from Assistant")
 public class Assistant {
 
     @Id

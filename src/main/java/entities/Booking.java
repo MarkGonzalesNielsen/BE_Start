@@ -5,6 +5,8 @@ import java.util.*;
 
 @Table(name = "booking")
 @Entity
+@NamedQuery(name = "Booking.deleteAllRows", query = "DELETE from Booking")
+
 public class Booking {
 
     @Id
