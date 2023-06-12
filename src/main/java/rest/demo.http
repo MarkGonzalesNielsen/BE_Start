@@ -26,6 +26,9 @@ Content-Type: application/json
   "pricePerHour": "160 kr"
 }
 
-### Delete Ingredient by id
-DELETE http://localhost:8080/backend_start_war_exploded/api/ingredient/delete/2
+### Get all bookings
+GET http://localhost:8080/backend_start_war_exploded/api/booking/all
+
+### Delete Booking by id
+DELETE http://localhost:8080/backend_start_war_exploded/api/booking/delete/2
 Content-Type: application/json

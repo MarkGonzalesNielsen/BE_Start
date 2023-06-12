@@ -24,13 +24,7 @@ public class Assistant {
     @Column(name = "pricePerHour")
     private String pricePerHour;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_name")
-//    private User user;
-
-    //    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
-//    private List<Car> cars = new ArrayList<>();
-
+    //lav bookings om til en liste
     @ManyToMany(mappedBy = "assistants")
     private List<Booking> bookings;
 
