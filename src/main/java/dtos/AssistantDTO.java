@@ -1,28 +1,31 @@
 package dtos;
 
 
+import entities.Assistant;
+import entities.Ingredient;
+
 import java.util.Objects;
 
 public class AssistantDTO {
     private int id;
-    private String title;
-    private String description;
-    private String instructions;
+    private String name;
+    private String language;
+    private String experience;
+    private String pricePerHour;
 
-    public AssistantDTO(String title, String description, String instructions) {
-        this.title = title;
-        this.description = description;
-        this.instructions = instructions;
+    public AssistantDTO(String name, String language, String experience, String pricePerHour) {
+        this.name = name;
+        this.language = language;
+        this.experience = experience;
+        this.pricePerHour = pricePerHour;
     }
 
-    public AssistantDTO(int id, String title, String description, String instructions) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.instructions = instructions;
-    }
-
-    public AssistantDTO() {
+    public AssistantDTO(Assistant assistant) {
+        this.id = assistant.getId();
+        this.name = assistant.getName();
+        this.name = assistant.getLanguage();
+        this.name = assistant.getExperience();
+        this.name = assistant.getPricePerHour();
     }
 
     public int getId() {
@@ -33,28 +36,36 @@ public class AssistantDTO {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
-    public String getInstructions() {
-        return instructions;
+    public String getExperience() {
+        return experience;
     }
 
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getPricePerHour() {
+        return pricePerHour;
+    }
+
+    public void setPricePerHour(String pricePerHour) {
+        this.pricePerHour = pricePerHour;
     }
 
     @Override
@@ -62,11 +73,11 @@ public class AssistantDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AssistantDTO that = (AssistantDTO) o;
-        return id == that.id && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(instructions, that.instructions);
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(language, that.language) && Objects.equals(experience, that.experience) && Objects.equals(pricePerHour, that.pricePerHour);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, instructions);
+        return Objects.hash(id, name, language, experience, pricePerHour);
     }
 }

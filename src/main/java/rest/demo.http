@@ -19,8 +19,15 @@ GET http://localhost:8080/backend_start_war_exploded/api/ingredient/all
 POST http://localhost:8080/backend_start_war_exploded/api/ingredient/create
 Content-Type: application/json
 
+### create new Assistant
+POST http://localhost:8080/backend_start_war_exploded/api/assistant/create
+Content-Type: application/json
+
 {
-  "name": "Pøls"
+  "name": "Hans",
+  "language": "English",
+  "experience": "10 years",
+  "pricePerHour": "160 kr"
 }
 
 ### update an Ingredient event

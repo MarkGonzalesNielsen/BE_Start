@@ -10,20 +10,23 @@ public class Assistant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private int id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "language")
+    private String language;
 
-    @Column(name = "instructions")
-    private String instructions;
+    @Column(name = "experience")
+    private String experience;
 
-    @ManyToOne
-    @JoinColumn(name = "user_name")
-    private User user;
+    @Column(name = "pricePerHour")
+    private String pricePerHour;
+
+//    @ManyToOne
+//    @JoinColumn(name = "user_name")
+//    private User user;
 
     @ManyToMany(mappedBy = "assistants")
     private List<Booking> bookings;
@@ -31,56 +34,55 @@ public class Assistant {
 //    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
 //    private List<Car> cars = new ArrayList<>();
 
+        public Assistant() {
+        }
 
 
-    public Assistant() {
+    public Assistant(String name, String language, String experience, String pricePerHour) {
+        this.name = name;
+        this.language = language;
+        this.experience = experience;
+        this.pricePerHour = pricePerHour;
     }
 
-    public Assistant(String title, String description, String instructions, User user){
-        this.title = title;
-        this.description = description;
-        this.instructions = instructions;
-        this.user = user;
-    }
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
-    public String getInstructions() {
-        return instructions;
+    public String getExperience() {
+        return experience;
     }
 
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 
-    public User getUser() {
-        return user;
+    public String getPricePerHour() {
+        return pricePerHour;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setPricePerHour(String pricePerHour) {
+        this.pricePerHour = pricePerHour;
     }
 
     public List<Booking> getBookings() {
@@ -96,11 +98,13 @@ public class Assistant {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Assistant assistant = (Assistant) o;
-        return Objects.equals(id, assistant.id) && Objects.equals(title, assistant.title) && Objects.equals(description, assistant.description) && Objects.equals(instructions, assistant.instructions) && Objects.equals(user, assistant.user) && Objects.equals(bookings, assistant.bookings);
+        return Objects.equals(id, assistant.id) && Objects.equals(name, assistant.name) && Objects.equals(language, assistant.language) && Objects.equals(experience, assistant.experience) && Objects.equals(pricePerHour, assistant.pricePerHour) && Objects.equals(bookings, assistant.bookings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, instructions, user, bookings);
+        return Objects.hash(id, name, language, experience, pricePerHour, bookings);
     }
+
+
 }
