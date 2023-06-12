@@ -3,9 +3,7 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dtos.BookingDTO;
-import dtos.IngredientDTO;
 import facades.BookingFacade;
-import facades.IngredientFacade;
 import utils.EMF_Creator;
 
 import javax.persistence.EntityManagerFactory;

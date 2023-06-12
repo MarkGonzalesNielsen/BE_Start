@@ -1,9 +1,7 @@
 package facades;
 
 import dtos.AssistantDTO;
-import dtos.IngredientDTO;
 import entities.Assistant;
-import entities.Ingredient;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

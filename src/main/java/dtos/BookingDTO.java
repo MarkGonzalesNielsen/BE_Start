@@ -1,7 +1,6 @@
 package dtos;
 
 import entities.Booking;
-import entities.Ingredient;
 
 import java.util.Objects;
 
