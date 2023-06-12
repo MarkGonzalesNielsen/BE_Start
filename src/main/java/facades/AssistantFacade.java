@@ -32,7 +32,7 @@ public class AssistantFacade {
         }
         return instance;
     }
-    
+
 
     public List<AssistantDTO> getAllAssistants() {
         EntityManager em = emf.createEntityManager();

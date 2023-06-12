@@ -34,17 +34,17 @@ public class Assistant {
     @ManyToMany(mappedBy = "assistants")
     private List<Booking> bookings;
 
-
-    public Assistant() {
-    }
-
-
     public Assistant(String name, String language, String experience, String pricePerHour) {
         this.name = name;
         this.language = language;
         this.experience = experience;
         this.pricePerHour = pricePerHour;
     }
+
+    public Assistant() {
+    }
+
+
 
     public int getId() {
         return id;

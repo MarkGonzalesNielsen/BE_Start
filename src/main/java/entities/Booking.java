@@ -27,15 +27,14 @@ public class Booking {
     private Car car;
 
 
+    public Booking(String date, String duration) {
+        this.date = date;
+        this.duration = duration;
+    }
+
     public Booking() {
     }
 
-
-    public Booking(String date, String duration, Car car) {
-        this.date = date;
-        this.duration = duration;
-        this.car = car;
-    }
 
     public int getId() {
         return id;

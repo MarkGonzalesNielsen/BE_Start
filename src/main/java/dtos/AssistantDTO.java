@@ -1,9 +1,5 @@
 package dtos;
-
-
 import entities.Assistant;
-import entities.Ingredient;
-
 import java.util.Objects;
 
 public class AssistantDTO {
@@ -13,19 +9,20 @@ public class AssistantDTO {
     private String experience;
     private String pricePerHour;
 
+    public AssistantDTO(Assistant assistant) {
+        this.id = assistant.getId();
+        this.name = assistant.getName();
+        this.language = assistant.getLanguage();
+        this.experience = assistant.getExperience();
+        this.pricePerHour = assistant.getPricePerHour();
+    }
+
+    //Test constructor
     public AssistantDTO(String name, String language, String experience, String pricePerHour) {
         this.name = name;
         this.language = language;
         this.experience = experience;
         this.pricePerHour = pricePerHour;
-    }
-
-    public AssistantDTO(Assistant assistant) {
-        this.id = assistant.getId();
-        this.name = assistant.getName();
-        this.name = assistant.getLanguage();
-        this.name = assistant.getExperience();
-        this.name = assistant.getPricePerHour();
     }
 
     public int getId() {

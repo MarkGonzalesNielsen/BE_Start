@@ -1,24 +1,24 @@
 package dtos;
 
+import entities.Booking;
+import entities.Ingredient;
+
 import java.util.Objects;
 
 public class BookingDTO {
     private int id;
     private String date;
-    private String Duration;
-
-    public BookingDTO() {
-    }
-
-    public BookingDTO(int id, String date, String Duration) {
-        this.id = id;
-        this.date = date;
-        this.Duration = Duration;
-    }
+    private String duration;
 
     public BookingDTO(String date, String duration) {
         this.date = date;
-        Duration = duration;
+        duration = duration;
+    }
+
+    public BookingDTO(Booking booking) {
+        this.id = booking.getId();
+        this.date = booking.getDate();
+        this.duration = booking.getDuration();
     }
 
     public int getId() {
@@ -38,11 +38,11 @@ public class BookingDTO {
     }
 
     public String getDuration() {
-        return Duration;
+        return duration;
     }
 
     public void setDuration(String duration) {
-        Duration = duration;
+        this.duration = duration;
     }
 
     @Override
@@ -50,11 +50,11 @@ public class BookingDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookingDTO that = (BookingDTO) o;
-        return id == that.id && Objects.equals(date, that.date) && Objects.equals(Duration, that.Duration);
+        return id == that.id && Objects.equals(date, that.date) && Objects.equals(duration, that.duration);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, Duration);
+        return Objects.hash(id, date, duration);
     }
 }
