@@ -30,6 +30,8 @@ public class Utility {
                                     + System.getProperty(obj.toString()) + "}");
             }
     }
+
+    //kan ikke slette rnme
     
     public static RenameMeDTO json2DTO(String json) throws UnsupportedEncodingException{
             return gson.fromJson(new String(json.getBytes("UTF8")), RenameMeDTO.class);
