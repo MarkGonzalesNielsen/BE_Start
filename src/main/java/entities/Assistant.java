@@ -28,8 +28,8 @@ public class Assistant {
 //    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
 //    private List<Car> cars = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "assistants")
-    private Set<Booking> bookings = new HashSet<>();
+    @ManyToMany(mappedBy = "bookings")
+    private Set<Assistant> bookings = new HashSet<>();
 
 
     public Assistant() {
@@ -82,11 +82,11 @@ public class Assistant {
         this.user = user;
     }
 
-    public Set<Booking> getBookings() {
+    public Set<Assistant> getBookings() {
         return bookings;
     }
 
-    public void setBookings(Set<Booking> bookings) {
+    public void setBookings(Set<Assistant> bookings) {
         this.bookings = bookings;
     }
 

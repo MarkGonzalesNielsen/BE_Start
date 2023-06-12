@@ -20,7 +20,7 @@ public class Booking {
     private String duration;
 
     @ManyToMany
-    @JoinTable(name = "assistants")
+    @JoinTable(name = "bookings")
     private Set<Booking> assistants = new HashSet<>();
 
     @ManyToOne
